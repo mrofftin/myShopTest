@@ -3,6 +3,7 @@ package co.mr.myShopTest.repository;
 import co.mr.myShopTest.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
@@ -17,7 +18,8 @@ import java.util.List;
 // findAll : 모든 엔티티 조회
 
 
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface ItemRepository extends JpaRepository<Item, Long>,
+        QuerydslPredicateExecutor<Item> {
     // 쿼리메소드는 Spring Data JPA의 핵심 기능 중 하나
     // Repository 인터페이스에 간단한 네이밍 규칙을 이용하여 메소드를 작성하면 쿼리를 실행할 수 있다.
     // find를 가장많이 사용
@@ -71,6 +73,19 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     @Query(value = "select * from item i where i.item_detail like " +
             "%:itemDetail% order by i.price desc", nativeQuery = true)
     List<Item> findByItemDetailNative(@Param("itemDetail") String itemDetail);
+
+    // *** QuerydslPredicateExecutor 상속 추가
+    // long count(Predicate) :조건에 맞는 데이터의 총 개수 반환
+    // boolean exists(Predicate) :조건에 맞는 데이터 존재 여부 반환
+    // Iterable findAll(Predicate) :조건에 맞는 모든 데이터 반환
+    // Page<T> findAll(Predicate, Pageable) :조건에 맞는 페이지 데이터 반환
+    // Iterable findAll(Predicate, Sort) : 조건에 맞는 정렬된 데이터 반환
+    // T findOne(Predicate) : 조건에 맞는 데이터 1개 반환
+
+
+
+
+
 
 
 

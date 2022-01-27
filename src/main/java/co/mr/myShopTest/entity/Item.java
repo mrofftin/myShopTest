@@ -32,7 +32,15 @@ public class Item {
     @Column(nullable = false)
     private String itemDetail; // 상품 상세 설명
 
-    @Enumerated(EnumType.STRING) // enum 타입 매핑
+    // EnumType.ORDINAL, EnumType.STRING 두가지가 있다.
+    // ORDINAL은 순서가 저장, STRING은 문자열이 저장된다.
+    // 예> EnumType.ORDINAL 지정 후
+    //      ItemSellStatus.SELL은 DB에 저장되는 값이 1로 저장
+    //     EnumType.STRING 지정 후
+    //      ItemSellStatus.SELL은 DB에 저장되는 값이 "SELL"문자열 자체로 저장
+    // ORDINAL은 순서가 바뀌면 문제의 소지가 많다.
+    // STRING으로 지정하는 것이 명확하기에 주로 사용.
+    @Enumerated(EnumType.STRING) // enum 타입 매핑,
     private ItemSellStatus itemSellStatus; //상품 판매 상태
 
     private LocalDateTime regTime; // 등록 시간
