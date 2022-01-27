@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>SpringEL 표현식</h1>
+<ul>Object
+    <li>${person.name} = <span th:text="${person.name}"></span></li>
+    <li>${person['name']} = <span th:text="${person['name']}"></span></li>
+    <li>${person.getName()} = <span th:text="${person.getName()}"></span></li>
+</ul>
+<ul>List
+    <li>${persons[0].name} = <span th:text="${persons[0].name}"></span></li>
+    <li>${persons[0]['name']} = <span th:text="${persons[0]['name']}"></span></li>
+    <li>${persons[0].getName()} = <span th:text="${persons[0].getName()}"></span></li>
+</ul>
+<ul>Map
+    <li>${personMap['p1'].name} = <span th:text="${personMap['p1'].name}"></span></li>
+    <li>${personMap['p1']['name']} = <span th:text="${personMap['p1']['name']}"></span></li>
+    <li>${personMap['p1'].getName()} = <span th:text="${personMap['p1'].getName()}"></span></li>
+</ul>
+</body>
+</html>

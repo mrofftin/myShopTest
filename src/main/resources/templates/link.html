@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<li><a th:href="@{/link}">url</a></li>
+<!--()안 부분은 쿼리 파라미터 -->
+<!--http://localhost:8080/link?param1=value1&param2=value2-->
+<li><a th:href="@{/link(param1=${param1},param2=${param2})}">query string</a></li>
+<!--http://localhost:8080/link/value1/value2-->
+<li><a th:href="@{/link/{param1}/{param2}(param1=${param1}, param2=${param2})}">query string</a></li>
+<!--http://localhost:8080/link/value1?param2=value2-->
+<li><a th:href="@{/link/{param1}(param1=${param1}, param2=${param2})}">path variable + query parameter</a></li>
+</body>
+</html>

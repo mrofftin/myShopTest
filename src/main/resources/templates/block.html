@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>text vs utext</h1>
+<!-- unescape, escape -->
+<th:block th:each="person : ${people}">
+    <div>
+        <span th:text="${personStat.count}"></span>
+        이름 : <span th:text="${person.name}"></span>
+        나이 : <span th:text="${person.age}"></span>
+    </div><br>
+    <div>
+        <span th:text="${person.address}"></span>
+    </div>
+</th:block>
+
+</body>
+</html>

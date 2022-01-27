@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 자바스크립트 인라인 사용 전 -->
+    <script>
+        var username = [[${person.name}]];
+        // alert(username)
+        var age = [[${person.age}]];
+        // alert(username)
+        //자바스크립트 내추럴 템플릿
+        var username2 = /*[[${person.name}]]*/ "test username";
+        //객체
+        var user = [[${person}]];
+        //alert(user);
+    </script>
+
+    <!-- 자바스크립트 인라인 사용 후 -->
+    <script th:inline="javascript">
+        var username = [[${person.name}]];
+        alert(username);
+        var age = [[${person.age}]];
+        alert(age);
+        var address = [[${person.address}]];
+        alert(address);
+        //자바스크립트 내추럴 템플릿
+        var username2 = /*[[${person.name}]]*/ "test username";
+        //객체
+        var user = [[${person}]];
+        console.log(user);
+        // alert(user);
+    </script>
+    <script th:inline="javascript">
+        [# th:each="person, stat : ${people}"]
+        var user[[${stat.count}]] = [[${person}]];
+        [/]
+    </script>
+</head>
+<body>
+<h1>text vs utext</h1>
+
+
+</body>
+</html>

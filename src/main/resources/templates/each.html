@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>username</th>
+            <th>age</th>
+        </tr>
+        <tr th:each="person : ${people}">
+            <td th:text="${person.name}">username</td>
+            <td th:text="${person.age}">0</td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <th>count</th>
+            <th>username</th>
+            <th>age</th>
+            <th>etc</th>
+        </tr>
+        <tr th:each="person, personStat : ${people}">
+            <td th:text="${personStat.count}">username</td>
+            <td th:text="${person.name}">username</td>
+            <td th:text="${person.age}">0</td>
+            <td>
+                index = <span th:text="${personStat.index}"></span>
+                count = <span th:text="${personStat.count}"></span>
+                size = <span th:text="${personStat.size}"></span>
+                even? = <span th:text="${personStat.even}"></span>
+                odd? = <span th:text="${personStat.odd}"></span>
+                first? = <span th:text="${personStat.first}"></span>
+                last? = <span th:text="${personStat.last}"></span>
+                current = <span th:text="${personStat.current}"></span>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

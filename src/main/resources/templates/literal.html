@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--주의! 다음 주석을 풀면 예외가 발생함-->
+<!-- <li>"hello world!" = <span th:text="hello world!"></span></li>-->
+<li>'hello' + ' world!' = <span th:text="'hello' + ' world!'"></span></li>
+<li>'hello world!' = <span th:text="'hello world!'"></span></li>
+<li>'hello ' + ${str} = <span th:text="'hello ' + ${str}"></span></li>
+<li>literal substitutions : |hello ${str}| = <span th:text="|hello ${str}|"></span></li>
+</body>
+</html>

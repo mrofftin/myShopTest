@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table, tr, td, th {
+        border:1px solid yellowgreen;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+<h1>text vs utext</h1>
+<h1>if, unless</h1>
+
+<table>
+    <tr>
+        <th>count</th>
+        <th>username</th>
+        <th>age</th>
+    </tr>
+    <tr th:each="person, personStat : ${people}">
+        <td th:text="${personStat.count}">1</td>
+        <td th:text="${person.name}">username</td>
+        <td>
+            <span th:text="${person.age}">0</span>
+            <span th:text="'청소년'" th:if="${person.age lt 20}"></span>
+            <span th:text="'청소년'" th:unless="${person.age ge 20}"></span>
+        </td>
+    </tr>
+</table>
+<h1>switch</h1>
+<table >
+    <tr>
+        <th>count</th>
+        <th>username</th>
+        <th>age</th>
+    </tr>
+    <tr th:each="person, personStat : ${people}">
+        <td th:text="${personStat.count}">1</td>
+        <td th:text="${person.name}">username</td>
+        <td th:switch="${person.age}">
+            <span th:case="10">청소년</span>
+            <span th:case="20">청년</span>
+            <span th:case="*">성인</span> <!--default-->
+        </td>
+    </tr>
+</table>
+</body>
+</html>
